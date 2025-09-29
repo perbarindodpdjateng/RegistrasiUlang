@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registrasi Ulang Simposium</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h3>Registrasi Ulang</h3>
+    <form id="formRegistrasi">
+      <label>No Telp:</label>
+      <input type="text" name="notelp" id="notelp" required autocomplete="off"/>
+      <div id="notelpError" style="color:#dc3545;font-size:13px;margin-top:2px;display:none">
+        Format nomor telepon tidak valid
+      </div>
+      <p><button type="button" onclick="cekNoTelp()">Cek No Telp</button></p>
+
+      <div id="dataLama" class="hidden">
+        <p class="blink-hijau">Data ditemukan. Silakan lanjutkan jika ingin memperbarui.</p>
+      </div>
+
+      <div id="telahRegistrasi" class="blink-merah hidden">
+        TELAH REGISTRASI ULANG ( Telah Terima Symposium Kit [E-Toll] )
+      </div>
+
+      <label>Nama Lengkap:</label>
+      <input type="text" name="nama" id="nama" required/>
+
+      <label>Instansi:</label>
+      <input type="text" name="instansi" id="instansi" required/>
+
+      <label>Email:</label>
+      <input type="email" name="email" id="email" required/>
+
+      <label>NIK:</label>
+      <input type="text" name="nik" id="nik" maxlength="16" pattern="\d{16}" required autocomplete="off"/>
+      <div id="nikError" style="color:#dc3545;font-size:13px;margin-top:2px;display:none">
+        Jumlah digit harus 16 digit
+      </div>
+
+      <label>Profesi:</label>
+      <input type="text" name="profesi" id="profesi" required/>
+
+      <label>Keterangan:</label>
+      <select name="keterangan" id="keterangan" required>
+        <option value="-">-</option>
+        <option value="Telah Terima Symposium Kit (E-Toll)">Telah Terima Symposium Kit (E-Toll)</option>
+      </select>
+
+      <button type="submit" id="submitBtn">S U B M I T</button><p></p>
+      <button type="button" id="btnInputKembali">Refresh</button>
+
+      <div id="progressWrap" style="display:none;margin-top:10px">
+        <div id="progressBar"></div>
+      </div>
+      <div id="msgSukses" class="blink-hijau" style="display:none;margin-top:10px">
+        DATA BERHASIL DISIMPAN
+      </div>
+    </form>
+    <p id="status"></p>
+  </div>
+
+  <!-- SEMUA ELEMEN KAMERA & CANVAS DIHAPUS -->
+  <!-- <canvas id="canvas" style="display:none;"></canvas> -->
+  <!-- <div id="previewWrap" ...>  ...  </div> -->
+
+  <script src="script.js"></script>
+</body>
+</html>
+
